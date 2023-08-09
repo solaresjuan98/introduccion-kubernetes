@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatappserver
+  namespace: conferencia
+  labels:
+    app: chatappserver
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: chatappserver
+  template:
+    metadata:
+      labels:
+        app: chatappserver
+    spec:
+      containers:
+        - name: chatappserver
+          image: us-central1-docker.pkg.dev/my-devops-project-392822/conferencia/chat_backend:v3
+
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+            - name: DB_CNN_STRING
+              value: "mongodb://10.100.6.196:27017/chatdb"
+            - name: JWT_KEY
+              value: "p@l4Br4zzz3kr3ttttta"

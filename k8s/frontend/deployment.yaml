@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatappfrontend
+  namespace: conferencia
+  labels:
+    app: chatappfrontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: chatappfrontend
+  template:
+    metadata:
+      labels:
+        app: chatappfrontend
+    spec:
+      containers:
+        - name: chatappfrontend
+          image: us-central1-docker.pkg.dev/my-devops-project-392822/conferencia/chatfrontend:v4 
+
+          # env:
+          # - name: REACT_APP_API_URL
+          #   value: http://34.148.237.47:8080/api
+          # - name: REACT_APP_SOCKET
+          #   value: http://34.148.237.47:8080/
+
+          ports:
+            - containerPort: 80
