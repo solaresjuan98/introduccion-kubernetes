@@ -1,9 +1,9 @@
-# introduccion-kubernetes
+# Orquestación de Contenedores con Kubernetes
 
-- [introduccion-kubernetes](#introduccion-kubernetes)
+- [Orquestación de Contenedores con Kubernetes](#orquestación-de-contenedores-con-kubernetes)
   - [Pasos para realizar Ejemplo practico](#pasos-para-realizar-ejemplo-practico)
     - [:white\_check\_mark: Herramientas y plataformas utilizadas:](#white_check_mark-herramientas-y-plataformas-utilizadas)
-    - [:construction: Arquitectura de las aplicaciones](#construction-arquitectura-de-las-aplicaciones)
+    - [:white\_check\_mark: Arquitectura de las aplicaciones](#white_check_mark-arquitectura-de-las-aplicaciones)
     - [:white\_check\_mark: Aspectos importantes a tomar en cuenta](#white_check_mark-aspectos-importantes-a-tomar-en-cuenta)
   - [Dockerizar aplicaciones](#dockerizar-aplicaciones)
     - [¿Qué es artifact registry?](#qué-es-artifact-registry)
@@ -22,7 +22,7 @@
 * Linea de comandos de Google Cloud (gcloud)
 * Linea de comandos de Kubectl
 
-### :construction: Arquitectura de las aplicaciones
+### :white_check_mark: Arquitectura de las aplicaciones
 
 
 
@@ -43,7 +43,64 @@ Como alternativa, también existe el **Container Registry** de Google , el cual 
 ### Subir imagen de Backend
 
 
+1. Generar build en Docker 
+
+    ```
+    docker build -t chat_backend .
+    ```
+2. Etiquetar y subir al registro
+
+    ### Alternativa 1: Utilizando Artifact Registry
+
+    ```Docker
+    docker tag chat_backend us-central1-docker.pkg.dev/my-devops-project-392822/conferencia/chat_backend:latest
+    ```
+
+    ```
+    docker push us-central1-docker.pkg.dev/my-devops-project-392822/conferencia/chat_backend:v3
+    ```
+
+    ### Alternativa 2: Container Container Registry
+
+    ```
+    docker tag ticket_server gcr.io/my-devops-project-392822/ejemplo/server:latest
+    ```
+
+    ```
+    docker push gcr.io/my-devops-project-392822/ejemplo/server:latest
+    ```
+
+
 ### Subir imagen de Frontend
+
+
+1. Generar build en Docker 
+
+    ```
+    docker build -t chat_frontend .
+    ```
+2. Etiquetar y subir al registro
+
+    ### Alternativa 1: Utilizando Artifact Registry
+
+    ```Docker
+    docker tag chat_frontend us-central1-docker.pkg.dev/my-devops-project-392822/conferencia/chatfrontend:latest
+    ```
+
+    ```
+    docker push us-central1-docker.pkg.dev/my-devops-project-392822/conferencia/chatfrontend:latest
+    ```
+
+    ### Alternativa 2: Container Container Registry
+
+    ```
+    docker tag ticket_server gcr.io/my-devops-project-392822/ejemplo/server:latest
+    ```
+
+    ```
+    docker push gcr.io/my-devops-project-392822/ejemplo/server:latest
+    ```
+
 
 
 ## Crear cluster de Kubernetes en Google Cloud Platform
@@ -63,7 +120,7 @@ Como alternativa, también existe el **Container Registry** de Google , el cual 
         --preemptible
     ```
 
-    El siguiente comando creara un cluster con las siguientes caracteristicas:
+    El comando anterior creará un cluster con las siguientes caracteristicas:
 
     * Nombre del clúster: cluster-de-ejemplo
     * Número de nodos: 2
