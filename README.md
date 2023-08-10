@@ -15,7 +15,6 @@
     - [Base de datos](#base-de-datos)
     - [Backend](#backend)
     - [Frontend](#frontend)
-      - [Instalación de Nginx Ingress Controller](#instalación-de-nginx-ingress-controller)
 
 
 ## Pasos para realizar Ejemplo practico
@@ -330,7 +329,6 @@ Como alternativa, también existe **Container Registry** de Google , el cual no 
         port: 80
         targetPort: 80
     # type: ClusterIP
-
     ```
 
 3. Instalación de NGINX Ingress Controller
@@ -339,19 +337,19 @@ El controlador de ingreso Nginx para Kubernetes es un componente de software dis
 
 Este controlador de ingreso utiliza el servidor web Nginx para gestionar las solicitudes entrantes y dirigirlas hacia los servicios adecuados en función de las reglas de configuración definidas. Proporciona características como balanceo de carga, redirecciones, reescritura de URL y soporte para la terminación SSL/TLS.
 
-#### Instalación de Nginx Ingress Controller
+    #### Instalación de Nginx Ingress Controller
 
     * Crear un namespace
 
-    ```
-    kubectl create namespace nginx-ingress
-    ```
+        ```sh
+        kubectl create namespace nginx-ingress
+        ```
 
     * Desplegar Nginx Controller
 
-    ```
-    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/cloud/deploy.yaml
-    ``` 
+        ```sh
+        kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/cloud/deploy.yaml
+        ``` 
 
 4. Crear Ingress para frontend
 
