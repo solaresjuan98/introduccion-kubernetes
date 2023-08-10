@@ -16,6 +16,7 @@
     - [Backend](#backend)
     - [Frontend](#frontend)
       - [Instalación de Nginx Ingress Controller](#instalación-de-nginx-ingress-controller)
+  - [Conclusión](#conclusión)
   - [Comandos utiles](#comandos-utiles)
 
 
@@ -379,6 +380,10 @@ Este controlador de ingreso utiliza el servidor web Nginx para gestionar las sol
                     number: 80
 
     ```
+
+## Conclusión
+
+En conclusión, la orquestación de contenedores con Kubernetes representa un gran avance en el mundo de la tecnología, permitiendo a las organizaciones optimizar sus procesos de desarrollo y despliegue de aplicaciones. Hemos explorado cómo Kubernetes proporciona una plataforma robusta y flexible para gestionar y escalar contenedores de manera eficiente, brindando automatización, resiliencia y escalabilidad a nuestras aplicaciones. A medida que continuamos avanzando en esta era digital, es esencial comprender y dominar las capacidades de Kubernetes para aprovechar al máximo su potencial. Al adoptar Kubernetes, estamos preparados para afrontar los desafíos de la orquestación de contenedores y construir un futuro tecnológico más ágil, adaptable y exitoso
 
 ## Comandos utiles
 
