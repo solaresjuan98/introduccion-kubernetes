@@ -12,6 +12,7 @@
     - [Subir imagen de Frontend](#subir-imagen-de-frontend)
   - [:white\_check\_mark:  Crear cluster de Kubernetes en Google Cloud Platform](#white_check_mark--crear-cluster-de-kubernetes-en-google-cloud-platform)
   - [:white\_check\_mark: Orquestrar contenedores en Kubernetes](#white_check_mark-orquestrar-contenedores-en-kubernetes)
+    - [Namespace en Kubernetes](#namespace-en-kubernetes)
     - [Base de datos](#base-de-datos)
     - [Backend](#backend)
     - [Frontend](#frontend)
@@ -185,6 +186,15 @@ Como alternativa, también existe **Container Registry** de Google , el cual no 
 
 ## :white_check_mark: Orquestrar contenedores en Kubernetes
 
+
+### Namespace en Kubernetes
+
+En Kubernetes, un namespace es un concepto que se utiliza para crear un espacio virtual aislado dentro de un clúster. Cumple la función de organizar y separar recursos y objetos relacionados en diferentes grupos lógicos, lo que ayuda a evitar conflictos y facilita la gestión de aplicaciones y cargas de trabajo en un entorno compartido.
+
+- Crear un namespace:
+```sh
+kubectl create ns conferencia
+```
 
 ### Base de datos
 1. Crear deployment
