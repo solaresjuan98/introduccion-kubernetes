@@ -4,7 +4,7 @@ metadata:
   name: mongodb-deployment
   namespace: conferencia
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: mongodb
