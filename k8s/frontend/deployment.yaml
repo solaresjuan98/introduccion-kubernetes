@@ -19,11 +19,5 @@ spec:
         - name: chatappfrontend
           image: us-central1-docker.pkg.dev/my-devops-project-392822/conferencia/chatfrontend:v4 
 
-          # env:
-          # - name: REACT_APP_API_URL
-          #   value: http://34.148.237.47:8080/api
-          # - name: REACT_APP_SOCKET
-          #   value: http://34.148.237.47:8080/
-
           ports:
             - containerPort: 80

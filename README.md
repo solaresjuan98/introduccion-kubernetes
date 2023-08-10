@@ -1,25 +1,27 @@
 # Orquestación de Contenedores con Kubernetes
 
 - [Orquestación de Contenedores con Kubernetes](#orquestación-de-contenedores-con-kubernetes)
-  - [Pasos para realizar Ejemplo practico](#pasos-para-realizar-ejemplo-practico)
-    - [:white\_check\_mark: Herramientas y plataformas utilizadas:](#white_check_mark-herramientas-y-plataformas-utilizadas)
-    - [:white\_check\_mark: Arquitectura de las aplicaciones](#white_check_mark-arquitectura-de-las-aplicaciones)
-    - [:white\_check\_mark: Aspectos importantes a tomar en cuenta](#white_check_mark-aspectos-importantes-a-tomar-en-cuenta)
-  - [Dockerizar aplicaciones](#dockerizar-aplicaciones)
+  - [:white\_check\_mark:  Pasos para realizar Ejemplo practico](#white_check_mark--pasos-para-realizar-ejemplo-practico)
+    - [Herramientas y plataformas utilizadas:](#herramientas-y-plataformas-utilizadas)
+    - [Arquitectura de las aplicaciones](#arquitectura-de-las-aplicaciones)
+    - [Aspectos importantes a tomar en cuenta](#aspectos-importantes-a-tomar-en-cuenta)
+  - [:white\_check\_mark:  Dockerizar aplicaciones](#white_check_mark--dockerizar-aplicaciones)
     - [¿Qué es artifact registry?](#qué-es-artifact-registry)
     - [Crear Repositorio en Artifact Registry](#crear-repositorio-en-artifact-registry)
     - [Subir imagen de Backend](#subir-imagen-de-backend)
     - [Subir imagen de Frontend](#subir-imagen-de-frontend)
-  - [Crear cluster de Kubernetes en Google Cloud Platform](#crear-cluster-de-kubernetes-en-google-cloud-platform)
-  - [Orquestrar contenedores en Kubernetes](#orquestrar-contenedores-en-kubernetes)
+  - [:white\_check\_mark:  Crear cluster de Kubernetes en Google Cloud Platform](#white_check_mark--crear-cluster-de-kubernetes-en-google-cloud-platform)
+  - [:white\_check\_mark: Orquestrar contenedores en Kubernetes](#white_check_mark-orquestrar-contenedores-en-kubernetes)
     - [Base de datos](#base-de-datos)
     - [Backend](#backend)
     - [Frontend](#frontend)
+      - [Instalación de Nginx Ingress Controller](#instalación-de-nginx-ingress-controller)
+  - [Comandos utiles](#comandos-utiles)
 
 
-## Pasos para realizar Ejemplo practico
+## :white_check_mark:  Pasos para realizar Ejemplo practico
 
-### :white_check_mark: Herramientas y plataformas utilizadas:
+### Herramientas y plataformas utilizadas:
 
 * Google Cloud Platform
 * Linux (opcional)
@@ -27,15 +29,15 @@
 * Linea de comandos de Google Cloud (gcloud)
 * Linea de comandos de Kubectl
 
-### :white_check_mark: Arquitectura de las aplicaciones
+### Arquitectura de las aplicaciones
 
 ![Terminal GCP](img/arquitectura.png)
 
-### :white_check_mark: Aspectos importantes a tomar en cuenta
+### Aspectos importantes a tomar en cuenta
 
 Para poder realizar el ejemplo practico en Google Cloud Platform sin incurrir en gastos adicionales, se recomienda utilizar los $300.00 dolares que otorga Google Cloud como regalo al crear una nueva cuenta.
 
-## Dockerizar aplicaciones
+## :white_check_mark:  Dockerizar aplicaciones
 
 En este paso las aplicaciones tanto de backend y frontend serán dockerizadas y subidas a un registro de Google Cloud Platform, que en este caso será **Artifact Registry**.
 
@@ -127,7 +129,7 @@ Como alternativa, también existe **Container Registry** de Google , el cual no 
 
 
 
-## Crear cluster de Kubernetes en Google Cloud Platform
+## :white_check_mark:  Crear cluster de Kubernetes en Google Cloud Platform
 
 1. En la parte superior derecha de la pantalla seleccionar el icono de la terminal que está integrada en Google Cloud Plarform
 
@@ -180,7 +182,7 @@ Como alternativa, también existe **Container Registry** de Google , el cual no 
     ```
 
 
-## Orquestrar contenedores en Kubernetes
+## :white_check_mark: Orquestrar contenedores en Kubernetes
 
 
 ### Base de datos
@@ -341,15 +343,15 @@ Este controlador de ingreso utiliza el servidor web Nginx para gestionar las sol
 
   * Crear un namespace
 
-      ```sh
-      kubectl create namespace nginx-ingress
-      ```
+    ```sh
+    kubectl create namespace nginx-ingress
+    ```
 
   * Desplegar Nginx Controller
 
-      ```sh
-      kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/cloud/deploy.yaml
-      ``` 
+    ```sh
+    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/static/provider/cloud/deploy.yaml
+    ``` 
 
 4. Crear Ingress para frontend
 
@@ -377,3 +379,7 @@ Este controlador de ingreso utiliza el servidor web Nginx para gestionar las sol
                     number: 80
 
     ```
+
+## Comandos utiles
+
+![Terminal GCP](img/code.png)
