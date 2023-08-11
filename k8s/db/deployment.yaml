@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mongodb-deployment
-  namespace: conferencia
+  name: mongodb-deployment # Nombre del Deployment
+  namespace: conferencia # namespace en el que se creará el Deployment
 spec:
-  replicas: 2
+  replicas: 2 # Número de réplicas del Pod (instancias de MongoDB) que se ejecutarán
   selector:
     matchLabels:
-      app: mongodb
+      app: mongodb # Etiqueta para seleccionar los Pods correspondientes a este Deployment
   template:
     metadata:
       labels:
-        app: mongodb
+        app: mongodb # Etiqueta aplicada a los Pods creados por este Deployment
     spec:
       containers:
-        - name: mongodb
-          image: mongo:latest
+        - name: mongodb # Nombre del contenedor
+          image: mongo:latest # Imagen de Docker utilizada para el contenedor (última versión de MongoDB)
           ports:
-            - containerPort: 27017
+            - containerPort: 27017 # Puerto expuesto por el contenedor

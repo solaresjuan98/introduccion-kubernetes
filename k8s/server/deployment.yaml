@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: chatappserver
-  namespace: conferencia
+  name: chatappserver   # Nombre del deployment
+  namespace: conferencia   # Namespace en el que se creará el deployment
   labels:
-    app: chatappserver
+    app: chatappserver   # Etiqueta para identificar la aplicación
 spec:
-  replicas: 3
+  replicas: 3   # Número deseado de réplicas del pod
   selector:
     matchLabels:
-      app: chatappserver
+      app: chatappserver   # Etiqueta de selección para el pod
   template:
     metadata:
       labels:
-        app: chatappserver
+        app: chatappserver   # Etiqueta de la plantilla del pod
     spec:
       containers:
-        - name: chatappserver
-          image: us-central1-docker.pkg.dev/my-devops-project-392822/conferencia/chat_backend:v3
+        - name: chatappserver   # Nombre del contenedor
+          image: us-central1-docker.pkg.dev/my-devops-project-392822/conferencia/chat_backend:v3   # Imagen del contenedor
 
           ports:
-            - containerPort: 8080
+            - containerPort: 8080   # Puerto en el que escucha el contenedor
           env:
             - name: PORT
-              value: "8080"
+              value: "8080"   # Variable de entorno para el puerto del contenedor
             - name: DB_CNN_STRING
-              value: "mongodb://10.100.6.196:27017/chatdb"
+              value: "mongodb://10.100.6.196:27017/chatdb"   # Cadena de conexión a la base de datos (agregar cluster IP del servicio de mongodb)
             - name: JWT_KEY
-              value: "p@l4Br4zzz3kr3ttttta"
+              value: "p@l4Br4zzz3kr3ttttta"   # Clave JWT para autenticación

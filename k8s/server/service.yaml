@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: chatappserver-svc
-  namespace: conferencia
+  name: chatappserver-svc  # Nombre del servicio
+  namespace: conferencia   # Namespace donde se crea el servicio
 spec:
   selector:
-    app: chatappserver
+    app: chatappserver    # Etiqueta de selector para identificar los pods asociados al servicio
   ports:
-    - protocol: TCP
-      port: 8080
-      targetPort: 8080
-  # type: LoadBalancer
+    - protocol: TCP       # Protocolo del puerto expuesto (TCP en este caso)
+      port: 8080          # Puerto en el que se expone el servicio
+      targetPort: 8080    # Puerto en el que los pods del selector están escuchando
+  type: LoadBalancer     # Tipo de servicio (opcional, en este caso se comenta)

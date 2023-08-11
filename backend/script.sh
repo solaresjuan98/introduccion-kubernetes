@@ -2,7 +2,6 @@
 
 # Generar build en Docker
 docker build -t chat_backend .
-#docker build -t chat_backend --build-arg http://34.74.197.245:8080/ .
 
 
 # * Alternativa 1: Con artifact registry

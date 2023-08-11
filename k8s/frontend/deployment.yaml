@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: chatappfrontend
-          image: us-central1-docker.pkg.dev/my-devops-project-392822/conferencia/chatfrontend:v4 
+          image: us-central1-docker.pkg.dev/my-devops-project-392822/conferencia/chatfrontend:v8 
 
           ports:
             - containerPort: 80
